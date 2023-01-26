@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 // import local interface
 import { InterfaceLayout } from '../interfaces/Layout/Layout.interface';
-import { Box, CssBaseline } from '@mui/material';
+import { Box, CssBaseline, Toolbar } from '@mui/material';
 
 const sidebarWidth = 240;
 
@@ -46,12 +46,14 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
             component="div"
             sx={{
               flexGrow: 1,
-              p: 3,
-              width: { sm: `calc(100% - ${sidebarWidth}px)` },
+              width: { md: `calc(100% - ${sidebarWidth}px)` },
             }}
           >
             <Header handleSidebarToggle={handleSidebarToggle} />
-            <Box component="main">{children}</Box>
+            <Box component="main" sx={{ p: 3 }}>
+              <Toolbar sx={{ display: { xs: 'flex', md: 'none' } }} />
+              {children}
+            </Box>
             <Footer />
           </Box>
         </Box>

@@ -14,24 +14,30 @@ import { Inbox, Mail } from '@mui/icons-material';
 
 // import local interface
 import { InterfaceSidebar } from '../../interfaces/Layout/Layout.interface';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
 function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
+  const router = useRouter();
+
   const sidebar = (
-    <div>
+    <div className="h-full">
       <Toolbar />
       <Divider />
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link href="/about" passHref key={text}>
+            <ListItem disablePadding>
+              <ListItemButton selected={'/about' === router.pathname}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <Inbox /> : <Mail />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -53,7 +59,7 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
   return (
     <Box
       component="nav"
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
       aria-label="mailbox folders"
     >
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -65,7 +71,7 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: 'block', sm: 'none' },
+          display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: drawerWidth,
@@ -77,10 +83,12 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: 'none', sm: 'block' },
+          display: { xs: 'none', md: 'block' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: drawerWidth,
+            height: '100vh',
+            position: 'relative',
           },
         }}
         open

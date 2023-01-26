@@ -10,7 +10,6 @@ function HomePage() {
       //   width: { sm: `calc(100% - ${drawerWidth}px)` },
       // }}
     >
-      <Toolbar />
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus

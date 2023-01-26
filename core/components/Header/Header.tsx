@@ -10,11 +10,8 @@ import { InterfaceHeader } from '../../interfaces/Layout/Layout.interface';
 function Header({ handleSidebarToggle }: InterfaceHeader) {
   return (
     <AppBar
-    // position="fixed"
-    // sx={{
-    //   width: { sm: `calc(100% - ${drawerWidth}px)` },
-    //   ml: { sm: `${drawerWidth}px` },
-    // }}
+      // position="relative"
+      sx={{ position: { xs: 'absolute', md: 'relative' } }}
     >
       <Toolbar>
         <IconButton
@@ -22,7 +19,7 @@ function Header({ handleSidebarToggle }: InterfaceHeader) {
           aria-label="open sidebar"
           edge="start"
           onClick={handleSidebarToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
+          sx={{ mr: 2, display: { md: 'none' } }}
         >
           <Menu />
         </IconButton>
