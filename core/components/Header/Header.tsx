@@ -11,7 +11,7 @@ function Header({ handleSidebarToggle }: InterfaceHeader) {
   return (
     <AppBar
       // position="relative"
-      sx={{ position: { xs: 'absolute', md: 'relative' } }}
+      sx={{ position: { xs: 'absolute', md: 'sticky' }, flexShrink: 0 }}
     >
       <Toolbar>
         <IconButton

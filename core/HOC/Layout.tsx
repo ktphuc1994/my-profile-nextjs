@@ -28,14 +28,6 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
       </Head>
 
       <div className="mx-auto container xl:max-w-screen-xl">
-        {/* <div className="flex w-full">
-          <Sidebar />
-          <div>
-            <Header handleSidebarToggle={handleSidebarToggle} />
-            <main>{children}</main>
-            <Footer />
-          </div>
-        </div> */}
         <Box sx={{ display: 'flex' }}>
           <CssBaseline />
           <Sidebar
@@ -45,12 +37,14 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
           <Box
             component="div"
             sx={{
+              display: 'flex',
+              flexDirection: 'column',
               flexGrow: 1,
               width: { md: `calc(100% - ${sidebarWidth}px)` },
             }}
           >
             <Header handleSidebarToggle={handleSidebarToggle} />
-            <Box component="main" sx={{ p: 3 }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
               <Toolbar sx={{ display: { xs: 'flex', md: 'none' } }} />
               {children}
             </Box>

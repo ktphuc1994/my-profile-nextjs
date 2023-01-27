@@ -1,45 +1,98 @@
-import { Box, Toolbar, Typography } from '@mui/material';
+import { Email, GitHub, Home, PhoneAndroid } from '@mui/icons-material';
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box } from '@mui/system';
 
-function HomePage() {
+const transformHeight = '50px';
+
+const boxItemStyle = {
+  width: { xs: '100%', lg: '33%' },
+};
+
+const HomePage = () => {
   return (
     <Box
       component="div"
-      // sx={{
-      //   flexGrow: 1,
-      //   p: 3,
-      //   width: { sm: `calc(100% - ${drawerWidth}px)` },
-      // }}
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', lg: 'row' },
+        pt: { lg: transformHeight },
+      }}
     >
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-        non enim praesent elementum facilisis leo vel. Risus at ultrices mi
-        tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non
-        tellus. Convallis convallis tellus id interdum velit laoreet id donec
-        ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-        suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod
-        quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
-        proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-        tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-        varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-        Lorem donec massa sapien faucibus et molestie ac.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-        integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-        lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-        Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-        accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-        Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-        senectus et. Adipiscing elit duis tristique sollicitudin nibh sit.
-        Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra
-        maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
-        aliquam ultrices sagittis orci a.
-      </Typography>
+      <Box component="div" className="contact-info" sx={boxItemStyle}>
+        <h3 className="font-semibold text-xl">CONTACT</h3>
+        <List>
+          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
+            <ListItemIcon sx={{ minWidth: '40px' }}>
+              <Email />
+            </ListItemIcon>
+            <ListItemText primary="khucthienphuc@gmail.com" />
+          </ListItem>
+          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
+            <ListItemIcon sx={{ minWidth: '40px' }}>
+              <PhoneAndroid />
+            </ListItemIcon>
+            <ListItemText primary="+84-98-121-7643" />
+          </ListItem>
+          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
+            <ListItemIcon sx={{ minWidth: '40px' }}>
+              <GitHub />
+            </ListItemIcon>
+            <ListItemText primary="ktphuc1994" />
+          </ListItem>
+          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
+            <ListItemIcon sx={{ minWidth: '40px' }}>
+              <Home />
+            </ListItemIcon>
+            <ListItemText primary="Ho Chi Minh City, Vietnam" />
+          </ListItem>
+        </List>
+      </Box>
+      <Box
+        component="div"
+        sx={{
+          ...boxItemStyle,
+          order: { xs: -1, lg: 0 },
+          mx: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          transform: { lg: `translateY(-${transformHeight})` },
+        }}
+      >
+        <Box
+          component="div"
+          sx={{
+            width: { xs: '50%', sm: '33%', lg: '66%' },
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            className="w-full rounded-full"
+            src="/Avatar.jpg"
+            alt="My Avatar"
+          />
+        </Box>
+        <p className="mt-3 font-bold text-2xl">Khuc Thien Phuc</p>
+        <p>Fresher</p>
+        <p>Front-end / Back-end</p>
+        <p>Developer</p>
+      </Box>
+      <Box
+        component="div"
+        className="personal-sumary"
+        sx={{ ...boxItemStyle, textAlign: { lg: 'right' } }}
+      >
+        <h3 className="font-semibold text-xl">PROFILE</h3>
+        <p>
+          Motivated fresher front-end and back-end developer. Seeking to use my
+          skills in HTML/CSS, ReactJS and NestJS / Prisma to meet business
+          needs.
+        </p>
+      </Box>
     </Box>
   );
-}
+};
 
 export default HomePage;
