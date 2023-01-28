@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 // import MUI Components
 import {
   Box,
@@ -14,10 +17,10 @@ import { LocalLibrary, Apps, ContactPage, Archive } from '@mui/icons-material';
 
 // import local interface
 import { InterfaceSidebar } from '../../interfaces/Layout/Layout.interface';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
-const drawerWidth = 240;
+// import local constants
+import { commonConst } from '../../constants/common.const';
+
 const ItemOnList = ['Skill', 'Projects', 'Contact'];
 
 const getListIcon = (text: string) => {
@@ -60,8 +63,13 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
 
   return (
     <Box
-      component="nav"
-      sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
+      component="div"
+      sx={{
+        minHeight: '100vh',
+        height: '100%',
+        width: { md: commonConst.sidebarWidth },
+        flexShrink: { md: 0 },
+      }}
       aria-label="mailbox folders"
       onClick={handleSidebarToggle}
     >
@@ -77,7 +85,7 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: commonConst.sidebarWidth,
           },
         }}
       >
@@ -89,8 +97,8 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
           display: { xs: 'none', md: 'block' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
-            height: '100vh',
+            height: '100%',
+            width: commonConst.sidebarWidth,
             position: 'relative',
           },
         }}

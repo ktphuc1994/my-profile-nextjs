@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 // import MUI components
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { Box, IconButton, Toolbar, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 
 // import local interface
@@ -9,10 +9,7 @@ import { InterfaceHeader } from '../../interfaces/Layout/Layout.interface';
 
 function Header({ handleSidebarToggle }: InterfaceHeader) {
   return (
-    <AppBar
-      // position="relative"
-      sx={{ position: { xs: 'absolute', md: 'sticky' }, flexShrink: 0 }}
-    >
+    <Box sx={{ position: { xs: 'absolute', md: 'block' }, flexShrink: 0 }}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -31,7 +28,7 @@ function Header({ handleSidebarToggle }: InterfaceHeader) {
           </Link>
         </Typography>
       </Toolbar>
-    </AppBar>
+    </Box>
   );
 }
 

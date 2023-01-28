@@ -54,7 +54,7 @@ const Skill: NextPageWithLayout = () => {
 };
 
 Skill.getLayout = (page: ReactElement) => (
-  <Layout title="My Profile" description="A simple profile coded with NextJS">
+  <Layout title="Skills List" description="A simple profile coded with NextJS">
     {page}
   </Layout>
 );
