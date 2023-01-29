@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 
 // import local components
@@ -7,8 +8,19 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 // import local interface
 import { InterfaceLayout } from '../interfaces/Layout/Layout.interface';
+import { Box, CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
+
+// import local constants
+import { commonConst } from '../constants/common.const';
+import { theme } from '../theme';
 
 function Layout({ children, title, description, icon }: InterfaceLayout) {
+  const [isMobileOpen, setMobileOpen] = useState(false);
+
+  const handleSidebarToggle = () => {
+    setMobileOpen(!isMobileOpen);
+  };
+
   return (
     <>
       <Head>
@@ -17,16 +29,33 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
         <link rel="icon" href={icon || '/favicon.ico'} />
       </Head>
 
-      <div className="mx-auto container xl:max-w-screen-xl">
-        <div className="flex w-full">
-          <Sidebar />
-          <div>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
+      <ThemeProvider theme={theme}>
+        <div className="mx-auto container xl:max-w-screen-xl">
+          <Box sx={{ display: 'flex' }}>
+            <CssBaseline />
+            <Sidebar
+              handleSidebarToggle={handleSidebarToggle}
+              isMobileOpen={isMobileOpen}
+            />
+            <Box
+              component="div"
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                flexGrow: 1,
+                width: { md: `calc(100% - ${commonConst.sidebarWidth}px)` },
+              }}
+            >
+              <Header handleSidebarToggle={handleSidebarToggle} />
+              <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <Toolbar />
+                {children}
+              </Box>
+              <Footer />
+            </Box>
+          </Box>
         </div>
-      </div>
+      </ThemeProvider>
     </>
   );
 }
