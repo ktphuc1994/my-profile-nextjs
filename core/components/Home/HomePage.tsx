@@ -18,7 +18,11 @@ const HomePage = () => {
         pt: { lg: transformHeight },
       }}
     >
-      <Box component="div" className="contact-info" sx={boxItemStyle}>
+      <Box
+        component="div"
+        className="contact-info"
+        sx={{ ...boxItemStyle, mt: { xs: '2rem', lg: 0 } }}
+      >
         <h3 className="font-semibold text-xl">CONTACT</h3>
         <List>
           <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
@@ -82,7 +86,7 @@ const HomePage = () => {
       <Box
         component="div"
         className="personal-sumary"
-        sx={{ ...boxItemStyle, textAlign: { lg: 'right' } }}
+        sx={{ ...boxItemStyle, textAlign: { xs: 'justify', lg: 'right' } }}
       >
         <h3 className="font-semibold text-xl">PROFILE</h3>
         <p>

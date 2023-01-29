@@ -4,7 +4,8 @@ export const skillList = [
   {
     skillName: 'Front-end',
     skills: [
-      'HTML & CSS',
+      'HTML',
+      'CSS',
       'Responsive',
       'Bootstrap',
       'TailwindCSS',
