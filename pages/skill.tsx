@@ -1,54 +1,54 @@
 import { ReactElement } from 'react';
 
 // import MUI Components
-import { CheckCircleOutline } from '@mui/icons-material';
-import { Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Chip } from '@mui/material';
 
 // import local data
-import { skillList } from '../data/data';
+import { skillColor, skillList } from '../data/data';
 
 // import local components
 import Layout from '../core/HOC/Layout';
 
 // import local types
 import type { NextPageWithLayout } from './_app';
-
-const getListItemWidth = (index: number) => {
-  if (index === 2) {
-    return 'w-full';
-  }
-  return 'w-1/2';
-};
+import CustomCollapse from '../core/components/common/CustomCollapse';
 
 const Skill: NextPageWithLayout = () => {
+  const renderTitle = (title: string) => (
+    <span className="text-xl font-semibold">{title}</span>
+  );
+
   return (
     <Box component="div">
-      <h2 className="mb-3 text-center text-2xl font-bold">SKILLS</h2>
-      <Box component="div" className="skill-list flex flex-wrap lg:flex-nowrap">
-        {skillList.map((skillCatergory, index) => (
-          <Box
-            component="div"
-            className={`skill__${skillCatergory.skillName} ${getListItemWidth(
-              index
-            )} lg:w-1/3 flex flex-col items-center`}
-            key={skillCatergory.skillName + index}
+      <h2 className="mb-3 text-center text-3xl font-bold">SKILLS</h2>
+      <div className="flex flex-wrap">
+        {skillList.map((item, index) => (
+          <div
+            key={item.skillName + index}
+            className="w-full sm:w-1/2 lg:w-1/3 p-2"
           >
-            <h3 className="text-xl font-semibold">
-              {skillCatergory.skillName}
-            </h3>
-            <List>
-              {skillCatergory.skills.map((skill, index) => (
-                <ListItem key={skill + index} disablePadding>
-                  <ListItemIcon sx={{ minWidth: '25px' }}>
-                    <CheckCircleOutline fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText primary={skill} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
+            <CustomCollapse title={renderTitle(item.skillName)}>
+              <div>
+                {item.skills.map((skill, i1) => {
+                  const thisSkill = skillColor.find(
+                    (item) => item.name === skill
+                  );
+                  return (
+                    <Chip
+                      key={skill + i1}
+                      label={skill}
+                      variant={thisSkill ? thisSkill.variant : 'outlined'}
+                      color={thisSkill ? thisSkill.color : 'primary'}
+                      size="medium"
+                      sx={{ mx: '2px', my: '4px' }}
+                    />
+                  );
+                })}
+              </div>
+            </CustomCollapse>
+          </div>
         ))}
-      </Box>
+      </div>
     </Box>
   );
 };

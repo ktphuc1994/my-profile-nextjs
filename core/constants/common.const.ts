@@ -1,7 +1,7 @@
 interface InterfaceCommonConst {
   sidebarWidth: number;
   customColor: Array<
-    'darkMBlue' | 'brightRed' | 'lightOrange' | 'limeGreen' | 'darkPink'
+    'darkMBlue' | 'brightRed' | 'darkOrange' | 'limeGreen' | 'darkPink'
   >;
 }
 
@@ -10,7 +10,7 @@ export const commonConst: InterfaceCommonConst = {
   customColor: [
     'darkMBlue',
     'brightRed',
-    'lightOrange',
+    'darkOrange',
     'limeGreen',
     'darkPink',
   ],

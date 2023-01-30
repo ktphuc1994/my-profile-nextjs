@@ -17,11 +17,11 @@ export const skillList = [
   },
   {
     skillName: 'Back-end',
-    skills: ['MySQL', 'ExpressJS', 'Sequelize', 'Prisma', 'Docker', 'NestJS'],
+    skills: ['MySQL', 'ExpressJS', 'Sequelize', 'Prisma', 'NestJS', 'Docker'],
   },
   {
     skillName: 'Other',
-    skills: ['JavaScript', 'REST APIs', 'TypeScript', 'Git', 'Vercel', 'Yarn'],
+    skills: ['REST APIs', 'JavaScript', 'TypeScript', 'Git', 'Vercel', 'Yarn'],
   },
 ];
 
@@ -127,35 +127,44 @@ export const projectList = [
   },
 ];
 
-const frameworkList = [
+const allSkills = [
   'HTML',
   'CSS',
   'JavaScript',
   'TypeScript',
+  'REST APIs',
   'ReactJS',
+  'Redux',
   'Redux Toolkit',
   'React Query',
   'Ant Design',
+  'Responsive',
+  'Bootstrap',
   'TailwindCSS',
   'MySQL',
+  'ExpressJS',
+  'Sequelize',
   'Prisma',
   'NestJS',
   'Docker',
+  'Yarn',
+  'Git',
+  'Vercel',
 ];
 
 interface InterfaceFrameworkColor {
   name: string;
-  color: 'darkMBlue' | 'brightRed' | 'lightOrange' | 'limeGreen' | 'darkPink';
+  color: 'darkMBlue' | 'brightRed' | 'darkOrange' | 'limeGreen' | 'darkPink';
   variant: 'outlined' | 'filled';
 }
-export const frameworkColor: Array<InterfaceFrameworkColor> = frameworkList.map(
+export const skillColor: Array<InterfaceFrameworkColor> = allSkills.map(
   (fw, i) => {
     const colorIndex = i % 5;
-    const variantType = i % 3;
+    const variantType = i % 2;
     return {
       name: fw,
       color: commonConst.customColor[colorIndex],
-      variant: variantType === 2 ? 'filled' : 'outlined',
+      variant: variantType === 0 ? 'filled' : 'outlined',
     };
   }
 );

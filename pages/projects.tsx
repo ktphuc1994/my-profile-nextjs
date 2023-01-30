@@ -15,7 +15,7 @@ import { ReactElement } from 'react';
 
 // import local components
 import Layout from '../core/HOC/Layout';
-import { frameworkColor, projectList } from '../data/data';
+import { skillColor, projectList } from '../data/data';
 
 // import local types
 import type { NextPageWithLayout } from './_app';
@@ -57,9 +57,7 @@ const Projects: NextPageWithLayout = () => {
                 </Typography>
                 <Stack direction="row" flexWrap="wrap" mb={'5px'}>
                   {project.framework.map((fw, i1) => {
-                    const frameW = frameworkColor.find(
-                      (item) => item.name === fw
-                    );
+                    const frameW = skillColor.find((item) => item.name === fw);
                     return (
                       <Chip
                         key={fw + i1}
