@@ -13,7 +13,7 @@ import Layout from '../core/HOC/Layout';
 import type { NextPageWithLayout } from './_app';
 import CustomCollapse from '../core/components/common/CustomCollapse';
 
-const Skill: NextPageWithLayout = () => {
+const Skills: NextPageWithLayout = () => {
   const renderTitle = (title: string) => (
     <span className="text-xl font-semibold">{title}</span>
   );
@@ -53,10 +53,10 @@ const Skill: NextPageWithLayout = () => {
   );
 };
 
-Skill.getLayout = (page: ReactElement) => (
+Skills.getLayout = (page: ReactElement) => (
   <Layout title="Skills List" description="A simple profile coded with NextJS">
     {page}
   </Layout>
 );
 
-export default Skill;
+export default Skills;

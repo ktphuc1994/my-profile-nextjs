@@ -22,6 +22,14 @@ declare module '@mui/material/styles' {
     limeGreen?: PaletteOptions['primary'];
     darkPink?: PaletteOptions['primary'];
   }
+
+  interface PaletteColor {
+    lighter?: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    ligher?: string;
+  }
 }
 
 // Update the Button's color prop options

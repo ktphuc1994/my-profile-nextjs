@@ -1,6 +1,7 @@
 export const colorConst = {
   primary: {
-    main: '#3898D8',
+    main: '#2196F3',
+    lighter: '#d9eeff',
   },
   darkMBlue: {
     main: '#26547D',

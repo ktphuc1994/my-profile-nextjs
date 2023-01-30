@@ -57,6 +57,7 @@ function CustomCollapse({
             expand={expanded}
             aria-expanded={expanded}
             aria-label="show more"
+            sx={{ display: 'flex', alignItems: 'center' }}
           >
             <ExpandMoreIcon />
           </ExpandMore>
