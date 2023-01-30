@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 // import local interface
 import { InterfaceLayout } from '../interfaces/Layout/Layout.interface';
-import { Box, CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
+import { Box, CssBaseline, Divider, ThemeProvider } from '@mui/material';
 
 // import local constants
 import { commonConst } from '../constants/common.const';
@@ -43,14 +43,15 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
                 display: 'flex',
                 flexDirection: 'column',
                 flexGrow: 1,
+                minHeight: '100vh',
                 width: { md: `calc(100% - ${commonConst.sidebarWidth}px)` },
               }}
             >
               <Header handleSidebarToggle={handleSidebarToggle} />
               <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <Toolbar />
                 {children}
               </Box>
+              <Divider />
               <Footer />
             </Box>
           </Box>

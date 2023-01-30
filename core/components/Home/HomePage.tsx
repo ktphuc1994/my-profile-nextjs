@@ -1,5 +1,11 @@
 import { Email, GitHub, Home, PhoneAndroid } from '@mui/icons-material';
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import { Box } from '@mui/system';
 
 const transformHeight = '50px';
@@ -23,7 +29,13 @@ const HomePage = () => {
         className="contact-info"
         sx={{ ...boxItemStyle, mt: { xs: '2rem', lg: 0 } }}
       >
-        <h3 className="font-semibold text-xl">CONTACT</h3>
+        <Typography
+          component="h3"
+          className="font-semibold text-xl"
+          sx={{ color: 'primary.main' }}
+        >
+          CONTACT
+        </Typography>
         <List>
           <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
             <ListItemIcon sx={{ minWidth: '40px' }}>
@@ -78,18 +90,26 @@ const HomePage = () => {
             alt="My Avatar"
           />
         </Box>
-        <p className="mt-3 font-bold text-2xl">Khuc Thien Phuc</p>
-        <p>Fresher</p>
-        <p>Front-end / Back-end</p>
-        <p>Developer</p>
+        <p className="mt-3 font-bold text-2xl xl:text-3xl">Khuc Thien Phuc</p>
+        <div className="text-base xl:text-lg">
+          <p>Fresher</p>
+          <p>Front-end / Back-end</p>
+          <p>Developer</p>
+        </div>
       </Box>
       <Box
         component="div"
         className="personal-sumary"
         sx={{ ...boxItemStyle, textAlign: { xs: 'justify', lg: 'right' } }}
       >
-        <h3 className="font-semibold text-xl">PROFILE</h3>
-        <p>
+        <Typography
+          component="h3"
+          className="font-semibold text-xl"
+          sx={{ color: 'primary.main' }}
+        >
+          PROFILE
+        </Typography>
+        <p className="leading-7">
           Motivated fresher front-end and back-end developer. Seeking to use my
           skills in HTML/CSS, ReactJS and NestJS / Prisma to meet business
           needs.
