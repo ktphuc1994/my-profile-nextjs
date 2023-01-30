@@ -31,8 +31,7 @@ const HomePage = () => {
       >
         <Typography
           component="h3"
-          className="font-semibold text-xl"
-          sx={{ color: 'primary.main' }}
+          sx={{ color: 'primary.main', fontSize: '1.25rem', fontWeight: 600 }}
         >
           CONTACT
         </Typography>
@@ -104,8 +103,12 @@ const HomePage = () => {
       >
         <Typography
           component="h3"
-          className="font-semibold text-xl"
-          sx={{ color: 'primary.main' }}
+          sx={{
+            mb: '0.5rem',
+            color: 'primary.main',
+            fontSize: '1.25rem',
+            fontWeight: 600,
+          }}
         >
           PROFILE
         </Typography>
