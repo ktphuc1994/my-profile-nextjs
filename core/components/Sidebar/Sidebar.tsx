@@ -111,7 +111,6 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
         flexShrink: { md: 0 },
       }}
       aria-label="mailbox folders"
-      onClick={handleSidebarToggle}
     >
       <Drawer
         variant="permanent"
