@@ -11,7 +11,6 @@ import {
   ListItemIcon,
   ListItemText,
   ListSubheader,
-  Toolbar,
 } from '@mui/material';
 import {
   LocalLibrary,
@@ -42,7 +41,7 @@ const getListIcon = (text: string) => {
   }
 };
 
-function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
+function Sidebar({ handleSidebarClose, isMobileOpen }: InterfaceSidebar) {
   const router = useRouter();
 
   const sidebar = (
@@ -61,7 +60,12 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
         {ItemOnList.map((text, index) => {
           const pathName = text === 'Contact' ? '/' : '/' + text.toLowerCase();
           return (
-            <Link href={pathName} passHref key={text + index}>
+            <Link
+              href={pathName}
+              passHref
+              key={text + index}
+              onClick={handleSidebarClose}
+            >
               <ListItem disablePadding>
                 <ListItemButton
                   selected={pathName === router.pathname}
@@ -131,7 +135,7 @@ function Sidebar({ handleSidebarToggle, isMobileOpen }: InterfaceSidebar) {
       <Drawer
         variant="temporary"
         open={isMobileOpen}
-        onClose={handleSidebarToggle}
+        onClose={handleSidebarClose}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
