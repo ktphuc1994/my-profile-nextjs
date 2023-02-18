@@ -21,6 +21,10 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
     setMobileOpen(!isMobileOpen);
   };
 
+  const handleSidebarClose = () => {
+    setMobileOpen(false);
+  };
+
   return (
     <>
       <Head>
@@ -34,7 +38,7 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
           <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <Sidebar
-              handleSidebarToggle={handleSidebarToggle}
+              handleSidebarClose={handleSidebarClose}
               isMobileOpen={isMobileOpen}
             />
             <Box

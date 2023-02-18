@@ -10,10 +10,11 @@ export interface InterfaceHeader extends BasePropsInterface {
   handleSidebarToggle: () => void;
 }
 
-export interface InterfaceSidebar extends InterfaceHeader {
+export interface InterfaceSidebar extends BasePropsInterface {
   isMobileOpen: boolean;
+  handleSidebarClose: () => void;
 }
 
-export interface InterfaceNavigation extends BasePropsInterface {
-  toggleSidebar: (open: boolean) => void;
-}
+// export interface InterfaceNavigation extends BasePropsInterface {
+//   toggleSidebar: (open: boolean) => void;
+// }
