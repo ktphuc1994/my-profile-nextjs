@@ -1,12 +1,13 @@
-import { Email, GitHub, Home, PhoneAndroid } from '@mui/icons-material';
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-} from '@mui/material';
-import { Box } from '@mui/system';
+import Email from '@mui/icons-material/Email';
+import GitHub from '@mui/icons-material/GitHub';
+import Home from '@mui/icons-material/Home';
+import PhoneAndroid from '@mui/icons-material/PhoneAndroid';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 const transformHeight = '50px';
 

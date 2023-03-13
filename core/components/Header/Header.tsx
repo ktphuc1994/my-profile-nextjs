@@ -1,8 +1,10 @@
 import Link from 'next/link';
 
 // import MUI components
-import { Box, IconButton, Typography } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/icons-material/Menu';
 
 // import local interface
 import { InterfaceHeader } from '../../interfaces/Layout/Layout.interface';

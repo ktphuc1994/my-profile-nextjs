@@ -2,23 +2,21 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 // import MUI Components
-import {
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  ListSubheader,
-} from '@mui/material';
-import {
-  LocalLibrary,
-  Apps,
-  ContactPage,
-  Archive,
-  AccountCircle,
-} from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+
+// import MUI icon
+import LocalLibrary from '@mui/icons-material/LocalLibrary';
+import Apps from '@mui/icons-material/Apps';
+import ContactPage from '@mui/icons-material/ContactPage';
+import Archive from '@mui/icons-material/Archive';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 // import local interface
 import { InterfaceSidebar } from '../../interfaces/Layout/Layout.interface';

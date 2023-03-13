@@ -1,5 +1,8 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
+
+// import MUI components
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 function Footer() {
   return (

@@ -6,9 +6,14 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
 
-// import local interface
+// import local interface and types
 import { InterfaceLayout } from '../interfaces/Layout/Layout.interface';
-import { Box, CssBaseline, Divider, ThemeProvider } from '@mui/material';
+
+// import MUI components
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import { ThemeProvider } from '@mui/material/styles';
 
 // import local constants
 import { commonConst } from '../constants/common.const';

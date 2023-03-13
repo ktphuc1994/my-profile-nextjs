@@ -10,9 +10,11 @@ export const skillList = [
       'Bootstrap',
       'TailwindCSS',
       'Ant Design',
+      'MUI',
       'ReactJS',
       'Redux',
       'React Query',
+      'NextJS',
     ],
   },
   {
@@ -21,7 +23,15 @@ export const skillList = [
   },
   {
     skillName: 'Other',
-    skills: ['REST APIs', 'JavaScript', 'TypeScript', 'Git', 'Vercel', 'Yarn'],
+    skills: [
+      'REST APIs',
+      'JavaScript',
+      'TypeScript',
+      'SWR',
+      'Git',
+      'Vercel',
+      'Yarn',
+    ],
   },
 ];
 
@@ -125,6 +135,22 @@ export const projectList = [
       'Docker related work (Dockerfile, docker-compose).',
     ],
   },
+  {
+    name: 'Next Movie Admin',
+    time: '2023-03-01',
+    framework: ['NextJS', 'MUI', 'SWR'],
+    demo: ['http://next-movie-admin.khucthienphuc.name.vn'],
+    git: ['https://github.com/ktphuc1994/next-movie-admin'],
+    image: '/img/next-movie-admin.jpg',
+    youtube: null,
+    description:
+      'A simple admin page for movie management. Using the power of MUI for theme creating, along side with NestJS and SWR for API request.',
+    contribution: [
+      'Design and code with NextJS.',
+      'Axios setting up along side with SWR.',
+      'Implement MUI React Components',
+    ],
+  },
 ];
 
 const allSkills = [
@@ -150,6 +176,9 @@ const allSkills = [
   'Yarn',
   'Git',
   'Vercel',
+  'NextJS',
+  'SWR',
+  'MUI',
 ];
 
 interface InterfaceFrameworkColor {
