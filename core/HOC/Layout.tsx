@@ -56,7 +56,18 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
                 width: { md: `calc(100% - ${commonConst.sidebarWidth}px)` },
               }}
             >
-              <Header handleSidebarToggle={handleSidebarToggle} />
+              <Box
+                component="div"
+                sx={{
+                  position: { xs: 'sticky', md: 'initial' },
+                  top: 0,
+                  backgroundColor: 'white',
+                  zIndex: 2,
+                }}
+              >
+                <Header handleSidebarToggle={handleSidebarToggle} />
+                <Divider />
+              </Box>
               <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 {children}
               </Box>
