@@ -1,19 +1,47 @@
-import Email from '@mui/icons-material/Email';
-import GitHub from '@mui/icons-material/GitHub';
-import Home from '@mui/icons-material/Home';
-import PhoneAndroid from '@mui/icons-material/PhoneAndroid';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import HomeIcon from '@mui/icons-material/Home';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 
 const transformHeight = '50px';
 
 const boxItemStyle = {
   width: { xs: '100%', lg: '33%' },
 };
+
+const contactItems = [
+  {
+    name: 'email',
+    text: 'khucthienphuc@gmail.com',
+    href: 'mailto:khucthienphuc@gmail.com',
+    icon: <EmailIcon />,
+  },
+  {
+    name: 'phone',
+    text: '+84-98-121-7643',
+    href: 'tel:+84981217643',
+    icon: <PhoneAndroidIcon />,
+  },
+  {
+    name: 'git',
+    text: 'ktphuc1994',
+    href: 'https://github.com/ktphuc1994/',
+    icon: <GitHubIcon />,
+  },
+  {
+    name: 'address',
+    text: 'Ho Chi Minh City, Vietnam',
+    href: 'https://goo.gl/maps/hgHbe8Wsfs156S79A',
+    icon: <HomeIcon />,
+  },
+];
 
 const HomePage = () => {
   return (
@@ -37,30 +65,32 @@ const HomePage = () => {
           CONTACT
         </Typography>
         <List>
-          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
-            <ListItemIcon sx={{ minWidth: '40px' }}>
-              <Email />
-            </ListItemIcon>
-            <ListItemText primary="khucthienphuc@gmail.com" />
-          </ListItem>
-          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
-            <ListItemIcon sx={{ minWidth: '40px' }}>
-              <PhoneAndroid />
-            </ListItemIcon>
-            <ListItemText primary="+84-98-121-7643" />
-          </ListItem>
-          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
-            <ListItemIcon sx={{ minWidth: '40px' }}>
-              <GitHub />
-            </ListItemIcon>
-            <ListItemText primary="ktphuc1994" />
-          </ListItem>
-          <ListItem sx={{ pl: 0, pt: { xs: 0, lg: '8px' } }}>
-            <ListItemIcon sx={{ minWidth: '40px' }}>
-              <Home />
-            </ListItemIcon>
-            <ListItemText primary="Ho Chi Minh City, Vietnam" />
-          </ListItem>
+          {contactItems.map((contact, index) => (
+            <ListItem
+              key={contact.name + index}
+              disablePadding
+              sx={{
+                '&:hover': {
+                  '.MuiListItemIcon-root': {
+                    color: 'primary.main',
+                    transform: 'scale(1.1)',
+                  },
+                },
+                '.MuiListItemIcon-root': {
+                  transformOrigin: 'left',
+                  transition: 'all 0.4s',
+                },
+              }}
+            >
+              <ListItemButton
+                href={contact.href}
+                target={contact.name === 'phone' ? '_self' : '_blank'}
+              >
+                <ListItemIcon>{contact.icon}</ListItemIcon>
+                <ListItemText primary={contact.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Box>
       <Box
