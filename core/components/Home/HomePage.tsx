@@ -126,9 +126,8 @@ const HomePage = () => {
         </Box>
         <p className="mt-3 font-bold text-2xl xl:text-3xl">Khuc Thien Phuc</p>
         <div className="text-base xl:text-lg">
-          <p>Fresher</p>
-          <p>Front-end / Back-end</p>
-          <p>Developer</p>
+          <p>Fullstack Developer</p>
+          <p>(ReactJS / NodeJS)</p>
         </div>
       </Box>
       <Box
@@ -148,9 +147,11 @@ const HomePage = () => {
           PROFILE
         </Typography>
         <p className="leading-7">
-          Motivated fresher front-end and back-end developer. Seeking to use my
-          skills in HTML/CSS, ReactJS and NestJS / Prisma to meet business
-          needs.
+          Fullstack Developer with 3+ years of experience building
+          high-performance web applications. Specialized in architecting
+          intuitive, dynamic frontends with ReactJS, Next.js, and TypeScript,
+          backed by robust REST APIs in NodeJS. Passionate about clean code, UI
+          visualization, and scalable web solutions.
         </p>
       </Box>
     </Box>
