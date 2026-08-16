@@ -1,5 +1,5 @@
+'use client';
 import { useState } from 'react';
-import Head from 'next/head';
 
 // import local components
 import Footer from '../components/Footer/Footer';
@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import { InterfaceLayout } from '../interfaces/Layout/Layout.interface';
 
 // import MUI components
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
@@ -19,7 +20,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { commonConst } from '../constants/common.const';
 import { theme } from '../theme';
 
-function Layout({ children, title, description, icon }: InterfaceLayout) {
+function Layout({ children }: InterfaceLayout) {
   const [isMobileOpen, setMobileOpen] = useState(false);
 
   const handleSidebarToggle = () => {
@@ -31,13 +32,7 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
   };
 
   return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="icon" href={icon || '/favicon.ico'} />
-      </Head>
-
+    <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <div className="mx-auto container xl:max-w-screen-xl">
           <Box sx={{ display: 'flex' }}>
@@ -77,7 +72,7 @@ function Layout({ children, title, description, icon }: InterfaceLayout) {
           </Box>
         </div>
       </ThemeProvider>
-    </>
+    </AppRouterCacheProvider>
   );
 }
 

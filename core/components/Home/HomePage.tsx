@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -114,10 +115,13 @@ const HomePage = () => {
             justifyContent: 'center',
           }}
         >
-          <img
-            className="w-full rounded-full"
+          <Image
+            className="w-full rounded-full h-auto"
             src="/Avatar.jpg"
             alt="My Avatar"
+            width={300}
+            height={300}
+            priority
           />
         </Box>
         <p className="mt-3 font-bold text-2xl xl:text-3xl">Khuc Thien Phuc</p>
