@@ -1,7 +1,8 @@
+'use client';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { Collapse } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InterfaceCustomCollapse } from '../../interfaces/commons';
 
 function CustomCollapse({

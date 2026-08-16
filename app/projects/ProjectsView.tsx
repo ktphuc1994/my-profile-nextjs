@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+'use client';
 
 // import MUI components
 import Button from '@mui/material/Button';
@@ -10,15 +10,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
-// import local components
-import Layout from '../core/HOC/Layout';
-import { skillColor, projectList } from '../data/data';
+// import local data
+import { skillColor, projectList } from '@/data/data';
 
-// import local types
-import type { NextPageWithLayout } from './_app';
-
-const Projects: NextPageWithLayout = () => {
+export default function ProjectsView() {
   return (
     <>
       <h2 className="mb-5 text-center text-3xl font-bold">PROJECTS</h2>
@@ -35,7 +32,7 @@ const Projects: NextPageWithLayout = () => {
           >
             <CardActionArea
               onClick={() => {
-                window.open(project.demo[0]);
+                window.open(project.demo[0], '_blank');
               }}
             >
               <CardMedia
@@ -49,11 +46,15 @@ const Projects: NextPageWithLayout = () => {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  fontWeight={700}
+                  sx={{ fontWeight: 700 }}
                 >
                   {project.name}
                 </Typography>
-                <Stack direction="row" flexWrap="wrap" mb={'5px'}>
+                <Stack
+                  direction="row"
+                  useFlexGap
+                  sx={{ flexWrap: 'wrap', mb: '5px' }}
+                >
                   {project.framework.map((fw, i1) => {
                     const frameW = skillColor.find((item) => item.name === fw);
                     return (
@@ -77,32 +78,32 @@ const Projects: NextPageWithLayout = () => {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions sx={{ flexWrap: 'wrap' }}>
-              {project.demo.map((link, i2) => (
-                <Button
-                  key={project.name + 'demo' + i2}
-                  href={link}
-                  target="_blank"
-                  size="small"
-                  color="limeGreen"
-                  variant="outlined"
-                >
-                  {project.demo.length === 1 ? 'DEMO' : `DEMO ${i2 + 1}`}
-                </Button>
-              ))}
-              {project.git.map((link, i3) => (
-                <Button
-                  key={project.name + 'git' + i3}
-                  href={link}
-                  target="_blank"
-                  size="small"
-                  color="brightRed"
-                  variant="outlined"
-                >
-                  {project.git.length === 1 ? 'GIT' : `GIT ${i3 + 1}`}
-                </Button>
-              ))}
-              <div className="w-full mt-2">
+            <CardActions>
+              <Box className="flex flex-wrap w-full gap-2">
+                {project.demo.map((link, i2) => (
+                  <Button
+                    key={project.name + 'demo' + i2}
+                    href={link}
+                    target="_blank"
+                    size="small"
+                    color="limeGreen"
+                    variant="outlined"
+                  >
+                    {project.demo.length === 1 ? 'DEMO' : `DEMO ${i2 + 1}`}
+                  </Button>
+                ))}
+                {project.git.map((link, i3) => (
+                  <Button
+                    key={project.name + 'git' + i3}
+                    href={link}
+                    target="_blank"
+                    size="small"
+                    color="brightRed"
+                    variant="outlined"
+                  >
+                    {project.git.length === 1 ? 'GIT' : `GIT ${i3 + 1}`}
+                  </Button>
+                ))}
                 {project.youtube ? (
                   <Button
                     href={project.youtube}
@@ -114,19 +115,11 @@ const Projects: NextPageWithLayout = () => {
                     YOUTUBE
                   </Button>
                 ) : null}
-              </div>
+              </Box>
             </CardActions>
           </Card>
         ))}
       </div>
     </>
   );
-};
-
-Projects.getLayout = (page: ReactElement) => (
-  <Layout title="ProjectList" description="A simple profile coded with NextJS">
-    {page}
-  </Layout>
-);
-
-export default Projects;
+}

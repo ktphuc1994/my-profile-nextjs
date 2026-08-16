@@ -1,4 +1,5 @@
-import { useRouter } from 'next/router';
+'use client';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 // import MUI Components
@@ -40,11 +41,10 @@ const getListIcon = (text: string) => {
 };
 
 function Sidebar({ handleSidebarClose, isMobileOpen }: InterfaceSidebar) {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const sidebar = (
     <div className="h-full">
-      {/* <Toolbar /> */}
       <List
         subheader={
           <ListSubheader
@@ -57,48 +57,46 @@ function Sidebar({ handleSidebarClose, isMobileOpen }: InterfaceSidebar) {
       >
         {ItemOnList.map((text, index) => {
           const pathName = text === 'Contact' ? '/' : '/' + text.toLowerCase();
+          const isSelected = pathName === pathname;
+
           return (
-            <Link
-              href={pathName}
-              passHref
-              key={text + index}
-              onClick={handleSidebarClose}
-            >
-              <ListItem disablePadding>
-                <ListItemButton
-                  selected={pathName === router.pathname}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'primary.main',
-                      color: 'white',
-                      fontWeight: 600,
-                      '&:hover': {
-                        backgroundColor: 'primary.main',
-                      },
-                      transition: 'all 0.3s',
-                    },
+            <ListItem key={text + index} disablePadding>
+              <ListItemButton
+                component={Link}
+                href={pathName}
+                onClick={handleSidebarClose}
+                selected={isSelected}
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    fontWeight: 600,
                     '&:hover': {
-                      backgroundColor: 'primary.lighter',
+                      backgroundColor: 'primary.main',
                     },
                     transition: 'all 0.3s',
+                  },
+                  '&:hover': {
+                    backgroundColor: 'primary.lighter',
+                  },
+                  transition: 'all 0.3s',
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: '2.5rem', color: 'inherit' }}>
+                  {getListIcon(text)}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{
+                    '& .MuiListItemText-primary': {
+                      textTransform: 'uppercase',
+                      fontSize: 'inherit',
+                      fontWeight: 'inherit',
+                    },
                   }}
-                >
-                  <ListItemIcon sx={{ minWidth: '2.5rem', color: 'inherit' }}>
-                    {getListIcon(text)}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{
-                      '& .MuiListItemText-primary': {
-                        textTransform: 'uppercase',
-                        fontSize: 'inherit',
-                        fontWeight: 'inherit',
-                      },
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Link>
+                />
+              </ListItemButton>
+            </ListItem>
           );
         })}
       </List>

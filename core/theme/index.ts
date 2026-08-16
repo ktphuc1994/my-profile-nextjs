@@ -1,4 +1,5 @@
-import { createTheme } from '@mui/material';
+'use client';
+import { createTheme } from '@mui/material/styles';
 import { colorConst } from '../constants/color.const';
 
 export const theme = createTheme({

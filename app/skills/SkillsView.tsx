@@ -1,19 +1,15 @@
-import { ReactElement } from 'react';
+'use client';
 
 // import MUI Components
 import { Box, Chip } from '@mui/material';
 
 // import local data
-import { skillColor, skillList } from '../data/data';
+import { skillColor, skillList } from '@/data/data';
 
 // import local components
-import Layout from '../core/HOC/Layout';
+import CustomCollapse from '@/core/components/common/CustomCollapse';
 
-// import local types
-import type { NextPageWithLayout } from './_app';
-import CustomCollapse from '../core/components/common/CustomCollapse';
-
-const Skills: NextPageWithLayout = () => {
+export default function SkillsView() {
   const renderTitle = (title: string) => (
     <span className="text-xl font-semibold">{title}</span>
   );
@@ -51,12 +47,4 @@ const Skills: NextPageWithLayout = () => {
       </div>
     </Box>
   );
-};
-
-Skills.getLayout = (page: ReactElement) => (
-  <Layout title="Skills List" description="A simple profile coded with NextJS">
-    {page}
-  </Layout>
-);
-
-export default Skills;
+}

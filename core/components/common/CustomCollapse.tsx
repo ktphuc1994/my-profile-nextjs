@@ -1,3 +1,4 @@
+'use client';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
